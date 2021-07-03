@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            background-color: rgb(245, 253, 255);
+            color: #000;
+            font-size: 1.6rem;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        main {
+            width:100%;
+        }
+
+        .card-calcprice-section {
+            width: 450px;
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            box-shadow: 1px 1px 12px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin: 60px auto;
+        }
+
+        .card-calcprice-section h2 {
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .card-calcprice-section form {
+            margin: 30px 0;
+        }
+
+        .card-calcprice-section input {
+            display: flex;
+            height: 40px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        .card-calcprice-section button {
+            height: 45px;
+            background-color: rgb(51, 51, 51);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            width: 100%;
+        }
+
+        .card-calcprice-section .info {
+            background-color: rgb(241, 252, 255);
+            border: 1px solid rgb(130, 219, 243);
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .card-calcprice-section .info-promocode {
+            margin-bottom: 10px;
+        }
+
+        .card-calcprice-section .valid{
+            color:rgb(68, 207, 75);
+            font-weight: bold;
+        }
+
+        .card-calcprice-section .no-valid {
+            color:rgb(207, 68, 68);
+            font-weight: bold;        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pedido Online</h1>
+        <p>Realiza tu pedido online y paga ahora</p>
+    </header>
+
+    <main>
+        <section class="card-calcprice-section">
+            <h2>Comprar producto</h2>
+    
+            <form>
+                <label for="totalPrice">Precio total:</label>
+                <input id="totalPrice" type="number">
+                <label for="discountValue">Descuento:</label>
+                <input id="discountValue" type="number">
+                <label for="discountCode">Código PROMO:</label>
+                <input id="discountCode" type="text">
+                <p id="info-promocode" class="info-promocode"></p>
+                <button id="btnCalcularPrecio" type="button" onclick="calcularPrecio()">Calcular precio final</button>
+            </form>
+            <p id="resultPrice"></p>
+            <p class="info">Puedes usar el código PROMO <strong>MARCA</strong> para disfrutar de un 5% de descuento adicional en tu compra.</p>
+        </section>
+    
+
+    </main>
+
+    
+    <script src="./index.js"></script>
+</body>
+</html>
