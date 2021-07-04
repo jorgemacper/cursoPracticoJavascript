@@ -1,4 +1,13 @@
-const btnCalcularPrecio = document.getElementById('btnCalcularPrecio')
+const promocodes = [
+    {
+        name: 'CODE5',
+        discount: 5
+    },
+    {
+        name: 'CODE10',
+        discount: 10
+    }
+]
 
 function calcularPrecio() {
     const totalPrice = document.getElementById('totalPrice').value
@@ -21,21 +30,29 @@ function calcularPrecio() {
  
 }
 
-function calcularPrecioFinal(precioTotal, descuento, promocode) {
+function calcularPrecioFinal(precioTotal, descuento, promocodeInput) {
     const paraPromocode = document.getElementById('info-promocode')
 
     let cantidadDescontada = 100 - descuento
 
-    if (promocode) {
+    const isPromocodeValid = (promocode) => {
+        return promocode.name === promocodeInput
+    }
 
-        if (promocode === 'MARCA') {
-            cantidadDescontada -= 5
-            paraPromocode.classList.add('valid')
-            paraPromocode.innerText = `Código promocional ${promocode} válido.`
-        } else {
-            paraPromocode.classList.add('no-valid')
-            paraPromocode.innerText = `El código promocional ${promocode} no es válido.`
-        }
+    const userPromocode = promocodes.find(isPromocodeValid)
+
+    console.log(userPromocode)
+
+    if (!userPromocode) {
+
+        paraPromocode.classList.add('no-valid')
+        paraPromocode.innerText = `El código promocional ${promocodeInput} no es válido.`
+
+    } else {
+        
+        cantidadDescontada -= userPromocode.discount
+        paraPromocode.classList.add('valid')
+        paraPromocode.innerText = `Código promocional ${userPromocode.name} válido con ${userPromocode.discount}% dto.`
     }
 
     
