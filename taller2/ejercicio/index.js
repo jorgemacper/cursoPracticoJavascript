@@ -45,7 +45,7 @@ function calcularPrecioFinal(precioTotal, descuento, promocodeInput) {
 
     if (!userPromocode) {
 
-        paraPromocode.classList.add('no-valid')
+        paraPromocode.classList.remove('valid')
         paraPromocode.innerText = `El código promocional ${promocodeInput} no es válido.`
 
     } else {
