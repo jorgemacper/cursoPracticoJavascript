@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos sobre residuos en España</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            padding: 5px;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .container {
+            display: grid;
+            align-content: center;
+            justify-content: center;
+            grid-template-columns: 550px 1fr;
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .chart-container {
+            align-self: center;
+            justify-self: center;
+            width: 500px;
+            height: 500px;
+        }
+
+        .legend-container {
+            width: 350px;
+        }
+
+        table {
+            width: 600px;
+        }
+        .title {
+            background-color:teal;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        table tr {
+            background-color: rgb(239, 243, 243);
+            height: 30px;
+        }
+        table tr:nth-child(2n) {
+            background-color: rgb(212, 230, 230);
+        }
+        table tr td:nth-child(2) {
+            text-align: center;
+        }
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(2, minmax(320px, 600px));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Datos sobre residuos en España</h1>
+        <p><strong>Fuente:</strong> <a href="https://datos.gob.es/es/catalogo/ea0010587-generacion-de-residuos-por-tipos-de-residuos-peligrosidad-y-sectores-de-actividad-economica-identificador-api-t26-p067-p02-residuos-serie-l0-02001-px">Instituto Nacional de Estadística (MINISTERIO DE ASUNTOS ECONÓMICOS Y TRANSFORMACIÓN DIGITAL)</a></p>
+        <p>* Clic sobre un sector para quitarlo del gráfico</p>
+    </header>
+    
+    <div class="container">
+        <div class="chart-container">
+            <canvas id="myChart" width="400" height="400">
+            </canvas>
+        </div>
+        <div id="legend-container"></div>
+    </div>
+
+
+    <main id="container"></main>
+
+    <script type="module" src="./app.js"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
+</body>
+</html>
